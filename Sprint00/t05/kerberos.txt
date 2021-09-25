@@ -1,0 +1,3 @@
+kinit -A
+klist 'abondar'
+kdestroy

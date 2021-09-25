@@ -1,0 +1,2 @@
+grep -w -i "redpill" $1 | sed 's/[Rr][Ee][Dd][Pp][Ii][Ll][Ll]/bluepill/g'
+
