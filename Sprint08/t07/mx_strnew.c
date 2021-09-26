@@ -1,11 +1,14 @@
 #include "create_new_agents.h"
 char *mx_strnew(const int size) {
-    if (size < 1) {
+    if (size < 1)
+    {
         return NULL;
     }
-    else {
+    else
+    {
         char *str = malloc(size+1);
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++)
+        {
             str[i] = '\0';
         }
         str[size] = '\0';

@@ -32,7 +32,6 @@ char* mx_nbr_to_hex(unsigned long nbr) {
     {
         istr[i] = arr[len - i - 1];
     }
-    free(arr);
     return istr;
 }
 

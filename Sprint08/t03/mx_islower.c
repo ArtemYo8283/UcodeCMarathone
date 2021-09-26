@@ -1,4 +1,4 @@
-#include "nbr_to_hex.h"
+#include "hex_to_nbr.h"
 bool mx_islower(int i)
 {
     if(i > 96 && i < 123)

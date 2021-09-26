@@ -1,30 +1,42 @@
 #include "duplicate.h"
 
-t_intarr mx_del_dup_sarr(t_intarr *src) {
-    for (int i = 0; i < src->size; i++) 
+t_intarr *mx_del_dup_sarr(t_intarr *src) {
+    if (src->arr == NULL) 
     {
-        for (int j = i + 1; j < src->size; j++) 
-        {
-            if (src->arr[i] == src->arr[j] ) 
+        return NULL;
+    }
+    int k = 0;
+    t_intarr *res = (t_intarr*)malloc(16);
+    int minus = 0;
+    int rep;
+    for (int i = 0; i < src -> size; i++) 
+    {
+        for (int j = 0; j < i; j++) {
+            if (src -> arr[j] == src -> arr[i]) 
             {
-                for (int a = j; a < src->size - 1; a++)
-                {
-                    src->arr[a] = src->arr[a + 1];
-                }
-                src->size--;
-                if (src->arr[i] == src->arr[j])
-                {
-                    j--;
-                }
+                minus++;
+                break;
             }
         }
     }
-    t_intarr tmp;
-    tmp.size = src->size;
-    tmp.arr = (int*)malloc(tmp.size * 4);
-    tmp.arr = mx_copy_int_arr(src->arr, tmp.size);
-    t_intarr *ptr = &tmp;
-    src = NULL;
-    return *ptr;
+    res->size = src->size - minus;
+    res->arr = mx_copy_int_arr(src->arr, res->size);
+    for (int i = 0; i < src->size; i++) 
+    {
+        rep = 0;
+        for (int j = 0; j < i; j++) 
+        {
+            if (src->arr[j] == src->arr[i] && k < res->size) 
+            {
+                rep = 1;
+                break;
+            }
+        }
+        if (rep == 0)
+        {
+            res->arr[k++] = src->arr[i];
+        }
+    }    
+    return res;
 }
 

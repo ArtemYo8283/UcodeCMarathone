@@ -2,7 +2,8 @@
 #define AGENT_H
 
 #include <stdlib.h>
-#include "../agent.h"
+#include <stdio.h>
+#include "agent.h"
 
 char *mx_strcpy(char *dst, const char *src);
 int mx_strlen(const char *s);

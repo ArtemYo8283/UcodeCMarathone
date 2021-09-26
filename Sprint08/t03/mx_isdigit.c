@@ -1,4 +1,4 @@
-#include "nbr_to_hex.h"
+#include "hex_to_nbr.h"
 bool mx_isdigit(int i) {
     if (i > 47 && i < 58) {
         return 1;

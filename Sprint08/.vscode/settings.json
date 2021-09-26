@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "nbr_to_hex.h": "c",
+        "hex_to_nbr.h": "c"
+    }
+}

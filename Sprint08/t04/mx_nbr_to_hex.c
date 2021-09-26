@@ -1,31 +1,27 @@
 #include <get_address.h>
-
-unsigned long mx_hex_to_nbr(const char *hex) {
-    unsigned long base = 1;
-    unsigned long result = 0;
-
-    if (!hex)
+char *mx_nbr_to_hex(unsigned long nbr) {
+    char *arr = mx_strnew(50);
+    int tmp = 0;
+    for (int i = 0; nbr != 0; i++) 
     {
-        return 0;
+        tmp = 0;
+        tmp = nbr % 16;
+        if(tmp > 10) 
+        {
+            arr[i] = tmp + 87;
+        }
+        else 
+        {
+            arr[i] = tmp + 48;  
+        }
+        nbr /= 16;
     }
-    for (int i = mx_strlen(hex) - 1; i >= 0; i--) 
+    int len = mx_strlen(arr);
+    char *istr = mx_strnew(len);
+    for (int i = 0; i < len; i++)
     {
-        if (mx_isdigit(hex[i])) 
-        {
-            result += (hex[i] - 48) * base;
-            base *= 16;
-        }
-        else if (mx_isupper(hex[i])) 
-        {
-            result += (hex[i] - 55) * base;
-            base *= 16;
-        }
-        else if (mx_islower(hex[i])) 
-        {
-            result += (hex[i] - 87) * base;
-            base *= 16;
-        }
+        istr[i] = arr[len - i - 1];
     }
-    return result;
+    return istr;
 }
 
