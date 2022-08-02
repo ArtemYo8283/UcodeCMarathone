@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "printerr.h": "c",
-        "stdbool.h": "c",
-        "calculator.h": "c",
-        "minilibmx.h": "c"
-    }
-}
